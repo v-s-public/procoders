@@ -234,12 +234,12 @@ return [
         ['header' => 'Menu'],
         [
             'text' => 'Groups',
-            'url'  => 'admin/settings',
+            'url'  => 'groups',
             'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'Students',
-            'url'  => 'admin/settings',
+            'url'  => 'students',
             'icon' => 'fas fa-fw fa-user',
         ],
     ],

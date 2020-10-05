@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'GroupsController@index');
+Route::get('/', function (){
+    return redirect()->route('groups.index');
+});
 
 Route::resource('groups', 'GroupsController');
 Route::get('groups/list/all', 'GroupsController@groupsList')->name('groups.list');
+
+Route::resource('students', 'StudentsController');
+Route::get('students/list/all', 'StudentsController@studentsList')->name('students.list');
