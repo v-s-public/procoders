@@ -11,7 +11,7 @@ use App\Models\Faculty;
 $factory->define(Group::class, function (Faker $faker) {
     $groupNumber = $faker->unique(true)->numberBetween(1, 100);
     $course = ArrayHelper::getRandomValue(Course::getCourses());
-    $facultyId = ArrayHelper::getRandomValue(Faculty::getAllFaculties());
+    $facultyId = ArrayHelper::getRandomValue(Faculty::getAllFacultiesIds());
 
     return [
         'group_number' => $groupNumber,

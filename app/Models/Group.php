@@ -16,4 +16,15 @@ class Group extends Model
     {
         return $this->belongsTo(Faculty::class, 'faculty_id');
     }
+
+    /**
+     * All groups IDs
+     *
+     * @return mixed
+     */
+
+    public static function getAllGroupsIds()
+    {
+        return self::select('group_id')->get()->pluck('group_id')->toArray();
+    }
 }

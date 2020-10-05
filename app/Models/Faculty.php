@@ -11,12 +11,12 @@ class Faculty extends Model
     ];
 
     /**
-     * All faculties
+     * All faculties IDs
      *
      * @return mixed
      */
 
-    public static function getAllFaculties()
+    public static function getAllFacultiesIds()
     {
         return self::select('faculty_id')->get()->pluck('faculty_id')->toArray();
     }
