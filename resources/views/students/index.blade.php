@@ -24,6 +24,16 @@
 {{--                                <th class="actions-column-3">Actions</th>--}}
                             </tr>
                             </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Patronymic</th>
+                                <th>Surname</th>
+                                <th>Date Of Birth</th>
+                                <th>Group</th>
+                                {{--                                <th class="actions-column-3">Actions</th>--}}
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -38,13 +48,18 @@
 @section('js')
     <script>
         $(document).ready(function () {
-            $('#entities').DataTable({
+            $('#entities tfoot th').each( function (i) {
+                var title = $('#entities thead th').eq( $(this).index() ).text();
+                $(this).html( '<input type="text" placeholder="Search '+title+'" data-index="'+i+'" />' );
+            });
+
+            var table = $('#entities').DataTable({
                 paging: true,
                 searching: true,
                 stateSave: true,
                 orderCellsTop: true,
                 order: [[0, "asc"]],
-                processing: true,
+                processing: false,
                 pagingType: 'numbers',
                 responsive: true,
                 serverSide: true,
@@ -57,6 +72,14 @@
                     {"data": "group.group_number"},
                 ]
             })
+
+            // Filter event handler
+            $(table.table().container() ).on('keyup', 'tfoot input', function() {
+                table
+                    .column( $(this).data('index') )
+                    .search( this.value )
+                    .draw();
+            });
         });
     </script>
 @stop
