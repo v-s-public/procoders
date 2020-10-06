@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class GroupRequest extends FormRequest
+class StudentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,17 +24,25 @@ class GroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'group_number' => [
+            'name' => [
                 'required',
-                'integer',
+                'string',
                 'max:255',
-                Rule::unique('groups', 'group_number')->ignore($this->group, 'group_id')
             ],
-            'course' => [
+            'patronymic' => [
                 'required',
-                'integer',
+                'string',
+                'max:255',
             ],
-            'faculty_id' => [
+            'surname' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'date_of_birth' => [
+                'required',
+            ],
+            'group_id' => [
                 'required',
                 'integer',
             ],
@@ -50,7 +57,7 @@ class GroupRequest extends FormRequest
     public function messages()
     {
         return [
-            'faculty_id.required' => 'The faculty field is required.',
+            'group_id.required' => 'The group field is required.',
         ];
     }
 }

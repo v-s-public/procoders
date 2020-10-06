@@ -29,6 +29,7 @@
             <label for="faculty_id" class="col-sm-2 col-form-label">Faculty</label>
             <div class="col-sm-10">
                 <select class="form-control" id="faculty_id" name="faculty_id">
+                    <option value="">Select faculty</option>
                     @foreach($faculties as $facultyId => $facultyName)
                         <option value="{{ $facultyId }}" {{ isset($model) && $model->faculty_id == $facultyId ? "selected" : ""}}>
                             {{ $facultyName }}

@@ -242,6 +242,7 @@ return [
             'text' => 'Students',
             'url'  => 'students',
             'icon' => 'fas fa-fw fa-user',
+            'active' => ['students', 'students*']
         ],
     ],
 
@@ -362,6 +363,21 @@ return [
                     'type' => 'css',
                     'asset' => false,
                     'location' => '/vendor/jsvalidation/css/jsvalidation.css',
+                ],
+            ],
+        ],
+        'DateTimePicker' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/vendor/bootstrap-datepicker/bootstrap-datepicker.min.css',
                 ],
             ],
         ],
