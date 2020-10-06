@@ -15,7 +15,7 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('group_id');
-            $table->unsignedTinyInteger('group_number');
+            $table->unsignedTinyInteger('group_number')->unique();
             $table->unsignedTinyInteger('course');
             $table->unsignedInteger('faculty_id')->nullable();
             $table->timestamps();

@@ -9,7 +9,7 @@ use App\Models\Course;
 use App\Models\Faculty;
 
 $factory->define(Group::class, function (Faker $faker) {
-    $groupNumber = $faker->unique(true)->numberBetween(1, 100);
+    $groupNumber = $faker->unique(false, 100)->numberBetween(1, 200);
     $course = ArrayHelper::getRandomValue(Course::getCourses());
     $facultyId = ArrayHelper::getRandomValue(Faculty::getAllFacultiesIds());
 
