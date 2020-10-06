@@ -67,7 +67,7 @@
                 {"data": "patronymic"},
                 {"data": "surname"},
                 {"data": "date_of_birth"},
-                {"data": "group_id"},
+                {"data": "group_id", "name": "group.group_number"},
                 {"data": "actions"},
             ]
         }).on('click', '.table-action-delete', function (e) {
