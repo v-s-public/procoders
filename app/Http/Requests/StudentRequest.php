@@ -27,17 +27,17 @@ class StudentRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'max:255',
+                'max:180',
             ],
             'patronymic' => [
                 'required',
                 'string',
-                'max:255',
+                'max:180',
             ],
             'surname' => [
                 'required',
                 'string',
-                'max:255',
+                'max:180',
             ],
             'date_of_birth' => [
                 'required',
