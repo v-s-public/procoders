@@ -6,11 +6,17 @@
     <h1>Groups</h1>
 @stop
 
+@section('plugins.Datatables', true)
+
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">Add group</div>
+                <div class="card-header">
+                    <a href="{{ route('groups.create') }}" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i> Add group
+                    </a>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="entities" class="display table table-bordered">
@@ -19,7 +25,7 @@
                                 <th>Group Number</th>
                                 <th>Course</th>
                                 <th>Faculty</th>
-{{--                                <th class="actions-column-3">Actions</th>--}}
+                                <th>Actions</th>
                             </tr>
                             </thead>
                         </table>
@@ -28,31 +34,9 @@
             </div>
         </div>
     </div>
-@stop
-
-@section('css')
+    @include('parts.modal_delete', ['entity' => 'group'])
 @stop
 
 @section('js')
-    <script>
-        $(document).ready(function () {
-            $('#entities').DataTable({
-                paging: true,
-                searching: true,
-                stateSave: true,
-                orderCellsTop: true,
-                order: [[0, "asc"]],
-                processing: true,
-                pagingType: 'numbers',
-                responsive: true,
-                serverSide: true,
-                ajax: '{!! route( $routePrefix.'.list') !!}',
-                columns: [
-                    {"data": "group_number"},
-                    {"data": "course"},
-                    {"data": "faculty.faculty_name"},
-                ]
-            })
-        });
-    </script>
+    @include('groups.index_js')
 @stop

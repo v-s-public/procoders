@@ -236,6 +236,7 @@ return [
             'text' => 'Groups',
             'url'  => 'groups',
             'icon' => 'fas fa-fw fa-users',
+            'active' => ['groups', 'groups*']
         ],
         [
             'text' => 'Students',
@@ -280,7 +281,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
@@ -346,6 +347,21 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'JsValidation' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/jsvalidation/js/jsvalidation.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/vendor/jsvalidation/css/jsvalidation.css',
                 ],
             ],
         ],
