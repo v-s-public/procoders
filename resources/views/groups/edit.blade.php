@@ -3,7 +3,7 @@
 @section('title', 'Add group')
 
 @section('content_header')
-    <h1>Add group</h1>
+    <h1>Edit group</h1>
 @stop
 
 @section('plugins.JsValidation', true)
