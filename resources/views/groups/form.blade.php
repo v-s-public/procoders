@@ -47,5 +47,6 @@
 </div>
 
 @section('js')
+    @include('groups.group_students_js')
     {!! JsValidator::formRequest('App\Http\Requests\GroupRequest', '#form'); !!}
 @stop

@@ -19,6 +19,7 @@ Route::get('/', function (){
 
 Route::resource('groups', 'GroupsController');
 Route::get('groups/list/all', 'GroupsController@groupsList')->name('groups.list');
+Route::get('groups/list/students/{groupId}', 'GroupsController@getStudentsList')->name('groups.students-list');
 
 Route::resource('students', 'StudentsController');
 Route::get('students/list/all', 'StudentsController@studentsList')->name('students.list');

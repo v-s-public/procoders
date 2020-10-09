@@ -6,6 +6,7 @@ use App\Http\Requests\GroupRequest;
 use App\Models\Course;
 use App\Models\Faculty;
 use App\Models\Group;
+use App\Models\Student;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -101,6 +102,22 @@ class GroupsController extends Controller
         $courses = Course::getCourses();
         $faculties = Faculty::all()->pluck('faculty_name', 'faculty_id')->toArray();
         return view($this->viewFolderPrefix . '.edit', compact('routePrefix', 'model', 'courses', 'faculties'));
+    }
+
+    public function getStudentsList(int $groupId)
+    {
+        $models = Student::where('group_id', $groupId);
+
+        $routePrefix = 'students';
+        $actions = ['edit', 'show', 'destroy'];
+        $modelPrimaryKey = 'student_id';
+
+        return Datatables::of($models)
+            ->addColumn('actions', function($model) use ($routePrefix, $actions, $modelPrimaryKey) {
+                return view('parts.grid_actions', compact('model', 'routePrefix', 'actions', 'modelPrimaryKey'));
+            })
+            ->rawColumns(['actions'])
+            ->make(true);
     }
 
     /**
