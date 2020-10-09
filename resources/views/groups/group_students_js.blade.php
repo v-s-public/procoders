@@ -1,5 +1,4 @@
 <script>
-    console.log('asdasdasd')
     $(document).ready(function () {
         $('#entities').DataTable({
             paging: true,
